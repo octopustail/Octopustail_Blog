@@ -9,7 +9,7 @@ document.body.appendChild(div);
 
 const mountNode = document.getElementById('app');
 
-const store = configureStore;
+const store = configureStore();
 
 
 render(
