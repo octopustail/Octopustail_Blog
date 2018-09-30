@@ -15,6 +15,7 @@ app.use('/', connectHistoryApiFallback());
 
 //api代理 关系到api请求的部分，另起一个服务器。在页面服务中做一个代理转发到另一个api server上
 //访问/api的时候，HTTPProxy会将我的请求代理到targetUrl上，也就是api服务器。在API server 上我们做一些关于数据库的操作以及对前端传过来数据的操作
+//数据库的连接、/api 请求后的后端路由控制，都是在api server上完成的。
 app.use('/api',(req,res)=>{
     proxy.web(req, res,{target:targetUrl})
 });

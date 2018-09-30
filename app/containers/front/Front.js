@@ -1,17 +1,42 @@
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux'
 
 import {
     Switch,
     Route
 } from 'react-router-dom';
 
-export default class Front extends Component() {
+import {Home} from '../home';
+import Login from "../home/components/login/Login";
+import {Logined} from '../home/components/logined/Logined'
+import Banner from '../../components/banner/Banner';
+import Menus from "../../components/menu/Menus";
+
+import {actions as frontAction} from '../../reducers/frontReducer';
+import {actions as tagAction} from '../../reducers/adminManageTags';
+import {actions as IndexAction} from '../../reducers/index'
+
+const {get_all_tags} = tagAction;
+const {get_login} = IndexAction;
+const {get_article_list} = frontAction
+
+
+class Front extends Component {
+    constructor(props) {
+        super(props)
+    }
+
+
     render() {
         const {url} = this.props.match;
+        const {login, register} = this.props;
         return (
             <div>
-                <div>{/* TODO:Banner*/}
+                <div>
+                    <Banner/>
+                    <Menus getArticleList={(tag) => this.props.get_article_list(tag, 1)}
+                           categories={this.props.categories} history={this.props.history}/>
                     {/* TODO: Menu*/}
                 </div>
                 <div>
@@ -26,11 +51,44 @@ export default class Front extends Component() {
                             </Switch>
                         </div>
                         <div>
-                            {/* TODO:登陆信息*/}
+                            {/* TODO:history似乎是和路由相关*/}
+                            {this.props.userInfo.userId ?
+                                <Logined history={this.props.history} userInfo={this.props.userInfo}/>
+                                : <Login login={login} register={register}/>
+                            }
                         </div>
                     </div>
                 </div>
             </div>
         )
     }
+
+    componentDidMount() {
+        this.props.get_all_tags()
+    }
 }
+
+Front.defaultProps = {
+    categories: []
+};
+
+Front.propType = {
+    categories: PropTypes.array.isRequired
+};
+
+function mapStateToProps(state) {
+    return {
+        categories: state.admin.tags,
+        userInfo: state.globalState.userInfo
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        get_all_tags: bindActionCreators(get_all_tags, dispatch),
+        get_login: bindActionCreators(get_login, dispatch),
+        get_article_list: bindActionCreators(get_article_list, dispatch)
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Front)
