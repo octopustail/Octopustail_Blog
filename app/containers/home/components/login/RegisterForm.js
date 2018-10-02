@@ -22,34 +22,34 @@ class RegisterFormCom extends Component{
         const {getFieldDecorator} = this.props.form;
         return(
             <Form onSubmit={this.handleRegister} className={style.formStyle}>
-                <FormItem>
+                <Form.Item>
                     {getFieldDecorator('userName', {
                         rules: [{required: true, message: '请输入用户名!'}],
                     })(
                         <Input prefix={<Icon type="user" style={{fontSize: 13}}/>} placeholder="Username"/>
                     )}
-                </FormItem>
-                <FormItem>
+                </Form.Item>
+                <Form.Item>
                     {getFieldDecorator('password', {
                         rules: [{required: true, message: '请输入密码!'}],
                     })(
                         <Input prefix={<Icon type="lock" style={{fontSize: 13}}/>} type="password"
                                placeholder="Password"/>
                     )}
-                </FormItem>
-                <FormItem>
+                </Form.Item>
+                <Form.Item>
                     {getFieldDecorator('passwordRe', {
                         rules: [{required: true, message: '请输入密码!'}],
                     })(
                         <Input prefix={<Icon type="lock" style={{fontSize: 13}}/>} type="password"
                                placeholder="Repeat password"/>
                     )}
-                </FormItem>
-                <FormItem>
+                </Form.Item>
+                <Form.Item>
                     <Button className={style.loginButton} type="primary" htmlType="submit">
                         注册
                     </Button>
-                </FormItem>
+                </Form.Item>
             </Form>
         )
     }

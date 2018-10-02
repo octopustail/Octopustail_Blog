@@ -2,6 +2,9 @@ import React from 'react';
 import {Provider} from 'react-redux';
 import {render} from 'react-dom';
 import configureStore from './configureStore';
+import AppIndex from 'containers/index'
+import {AppContainer} from 'react-hot-loader'
+
 
 let div = document.createElement('div');
 div.setAttribute('id', 'app');
@@ -13,7 +16,14 @@ const store = configureStore();
 
 
 render(
-    <Provider store={store}>
-        <h1>hello</h1>
-    </Provider>, mountNode
-)
+    <AppContainer>
+        <Provider store={store}>
+            <IndexApp/>
+        </Provider>
+    </AppContainer>, mountNode
+);
+
+
+if (module.hot && process.env.NODE_ENV !== 'production') {
+    module.hot.accept();
+}

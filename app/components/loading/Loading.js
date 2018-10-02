@@ -1,9 +1,8 @@
-import React,{Component} from 'react';
-
-export default class Loading extends Component(){
-    render(){
-        return(
-            <div>Not Found</div>
-        )
-    }
-}
+import React from 'react'
+import { Spin } from 'antd';
+import style from './style.css'
+export const Loading=()=>(
+    <div className={style.container}>
+        <Spin size="large"/>
+    </div>
+);

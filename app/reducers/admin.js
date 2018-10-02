@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux';
 import {reducer as articles} from './adminManageArticles';
-import {reducer as newArticle} from './adminManageArticles';
+import {reducer as newArticle} from './adminManageNewArticle';
 import {reducer as tags} from './adminManageArticles';
 import {reducer as users} from './adminManageArticles';
 
@@ -44,7 +44,7 @@ export function reducer(state = initialState, action) {
 
 
 const admin = combineReducers({
-    globalAdminReducer: reducer,
+    adminGlobalState: reducer,
     articles,
     users,
     newArticle,

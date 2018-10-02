@@ -12,13 +12,15 @@ import Login from "../home/components/login/Login";
 import {Logined} from '../home/components/logined/Logined'
 import Banner from '../../components/banner/Banner';
 import Menus from "../../components/menu/Menus";
+import NotFound from '../../components/notFound/NotFound'
+import Detail from './detail'
 
 import {actions as frontAction} from '../../reducers/frontReducer';
 import {actions as tagAction} from '../../reducers/adminManageTags';
 import {actions as IndexAction} from '../../reducers/index'
 
 const {get_all_tags} = tagAction;
-const {get_login} = IndexAction;
+const {get_login,get_register} = IndexAction;
 const {get_article_list} = frontAction
 
 
@@ -37,7 +39,6 @@ class Front extends Component {
                     <Banner/>
                     <Menus getArticleList={(tag) => this.props.get_article_list(tag, 1)}
                            categories={this.props.categories} history={this.props.history}/>
-                    {/* TODO: Menu*/}
                 </div>
                 <div>
                     <div>
@@ -86,8 +87,10 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         get_all_tags: bindActionCreators(get_all_tags, dispatch),
-        get_login: bindActionCreators(get_login, dispatch),
         get_article_list: bindActionCreators(get_article_list, dispatch)
+        login: bindActionCreators(get_login, dispatch),
+        register: bindActionCreators(get_register, dispatch),
+
     }
 }
 
