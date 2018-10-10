@@ -2,7 +2,7 @@ import React from 'react';
 import {Provider} from 'react-redux';
 import {render} from 'react-dom';
 import configureStore from './configureStore';
-import AppIndex from 'containers/index'
+import AppIndex from './containers/index'
 import {AppContainer} from 'react-hot-loader'
 
 
@@ -18,7 +18,7 @@ const store = configureStore();
 render(
     <AppContainer>
         <Provider store={store}>
-            <IndexApp/>
+            <AppIndex/>
         </Provider>
     </AppContainer>, mountNode
 );

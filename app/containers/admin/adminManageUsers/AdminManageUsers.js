@@ -3,7 +3,7 @@ import React, {Component, PropTypes} from 'react'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import {Table, Pagination} from 'antd';
-import style from 'style.css'
+import style from './style.css'
 
 import {actions} from '../../../reducers/adminManageUsers'
 

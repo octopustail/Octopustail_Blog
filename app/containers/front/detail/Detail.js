@@ -3,7 +3,7 @@ import PureRenderMixin from 'react-addons-pure-render-mixin'
 import {bindActionCreators} from 'redux'
 import remark from 'remark'
 import {connect} from 'react-redux'
-import {actions} from "../../reducers/frontReducer";
+import {actions} from "../../../reducers/frontReducer";
 const {get_article_detail} = actions;
 import reactRenderer from 'remark-react'
 import style from './style.css'

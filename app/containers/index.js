@@ -1,4 +1,4 @@
-import React, {Component, Proptypes} from 'react';
+import React, {Component} from 'react';
 /*react-router和react-router-dom的引用一个就好，react-router-dom多了Link，BroswerRouter这样的DOM组件*/
 import {
     BroswerRouter as Router,

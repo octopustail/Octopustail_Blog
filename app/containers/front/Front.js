@@ -87,7 +87,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         get_all_tags: bindActionCreators(get_all_tags, dispatch),
-        get_article_list: bindActionCreators(get_article_list, dispatch)
+        get_article_list: bindActionCreators(get_article_list, dispatch),
         login: bindActionCreators(get_login, dispatch),
         register: bindActionCreators(get_register, dispatch),
 
