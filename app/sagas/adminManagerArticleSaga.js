@@ -19,10 +19,12 @@ export function* getArticleListFlow () {
     while (true){
         let req = yield take(ArticleTypes.ADMIN_GET_ARTICLE_LIST);
         let res = yield call(getArticleList,req.pageNum);
+        console.log('req',req,'res',res)
+
         if(res){
             if (res.code === 0) {
                 res.data.pageNum = req.pageNum;
-                yield put({type:ArticleTypes.ADMIN_RESPONSE_GET_ARTICLE_LIST,data:res.data})
+                yield put({type:ArticleTypes.ADMIN_RESPONSE_ARTICLE_LIST,data:res.data})
             } else if (res.message === '身份信息已过期，请重新登录') {
                 yield put({type: IndexActionTypes.SET_MESSAGE, msgContent: res.message, msgType: 0});
                 setTimeout(function () {

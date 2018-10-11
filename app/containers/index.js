@@ -9,6 +9,7 @@ import {
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux'
 import PureRenderMixin from 'react-addons-pure-render-mixin';
+import {notification} from 'antd'
 
 import NotFound from '../components/notFound/NotFound';
 import Admin from './admin/Admin';
@@ -34,10 +35,10 @@ class AppIndex extends Component {
         notification[type]({
             message: message,
             onClose: () => {
-                that.props.clear_msg();
+                that.props.clearMsg();
             }
         });
-        that.props.clear_msg();
+        that.props.clearMsg();
     }
 
     render() {

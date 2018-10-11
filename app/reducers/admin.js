@@ -35,7 +35,8 @@ export function reducer(state = initialState, action) {
         case actionType.ADMIN_URI_LOCATION:
             return {
                 ...state,
-                url: data
+                url: action.data
+                //url: data    bug：data 是从action里过来的啊喂
             };
         default:
             return state;

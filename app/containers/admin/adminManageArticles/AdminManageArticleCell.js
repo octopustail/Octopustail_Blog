@@ -31,3 +31,4 @@ export const ManageArticleCell = (props) => (
         </div>
     </div>
 )
+

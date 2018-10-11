@@ -46,7 +46,6 @@ export function* getArticleDetailFlow() {
     while (true) {
         let req = yield take(FrontActionTypes.GET_ARTICLE_DETAIL);
         let res = yield call(getArticleDetail, req.id);
-        console.log('req', req,'res',res);
         if (res) {
             if (res.code === 0) {
                 yield put({type: FrontActionTypes.RESPONSE_ARTICLE_DETAIL, data: res.data});

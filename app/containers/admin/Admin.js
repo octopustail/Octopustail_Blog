@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 import {bindActionCreators} from 'redux'
+import style from './style.css'
 
 /* 组件类 */
 import NotFound from '../../components/notFound/NotFound'
@@ -37,22 +38,23 @@ class Admin extends Component {
             return (<div>
                 {
                     this.props.userInfo.userType === 'admin' ?
-                        <div>
+                        <div className={style.container}>
                             <div>
                                 <AdminMenu
+                                    className={style.menuContainer}
                                     history={this.props.history}
                                     url={this.props.adminUrl}
                                     changeUrl={this.props.change_location_admin}
                                 />
                             </div>
-                            <div>
+                            <div className={style.contentContainer}>
                                 <Switch>
                                     <Route exact path={url} component={AdminIndex}/>
-                                    <Route path={`${url}/manageUsers`} component={AdminManageUsers}/>
-                                    <Route path={`${url}/manageTags`} component={AdminManageTags}/>
-                                    <Route path={`${url}/manageArticles`} component={AdminManageArticles}/>
-                                    <Route path={`${url}/manageNewArticle`} component={AdminManageNewArticle}/>
-                                    <Route path={`${url}/manageDetail`} component={AdminManageDetail}/>
+                                    <Route path={`${url}/managerUser`} component={AdminManageUsers}/>
+                                    <Route path={`${url}/managerTags`} component={AdminManageTags}/>
+                                    <Route path={`${url}/managerArticle`} component={AdminManageArticles}/>
+                                    <Route path={`${url}/newArticle`} component={AdminManageNewArticle}/>
+                                    <Route path={`${url}/managerDetail`} component={AdminManageDetail}/>
                                     <Route component={NotFound}/>
                                 </Switch>
                             </div>
@@ -80,7 +82,7 @@ Admin.propTypes = {
 };
 
 function mapStateToProps(state) {
-    const url = state.admin.adminGlobalState
+    const {url} = state.admin.adminGlobalState
     return {
         adminUrl: url,
         userInfo: state.globalState.userInfo

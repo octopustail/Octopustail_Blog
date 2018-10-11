@@ -2,7 +2,7 @@ import PureRenderMixin from 'react-addons-pure-render-mixin'
 import React, {Component, PropTypes} from 'react'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
-import {Tag, Input, Tooltip, Botton} from 'antd'
+import {Tag, Input, Tooltip, Button} from 'antd'
 import style from './style.css'
 
 import {actions} from '../../../reducers/adminManageTags'
