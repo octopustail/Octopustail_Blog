@@ -64,7 +64,7 @@ router.get('/delArticle',(req,res)=>{
                 responseClient(res,200,1,'文章不存在');
             }
         }).cancel(err=>{
-        responseClient(res);
+            responseClient(res);
     })
 });
 

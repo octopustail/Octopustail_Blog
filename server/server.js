@@ -46,10 +46,10 @@ if(process.env.NODE_ENV!=='production'){
     app.use(WebpackHotMiddleware(compiler));
 }
 
-app.listen(port,function(err){
+app.listen(port,(err)=>{
     if(err){
         console.error(err)
     }else{
-        console.log('in a browser to view the app');
-}
+        console.log(`===>open http://${config.host}:${config.port} in a browser to view the app`);
+    }
 });

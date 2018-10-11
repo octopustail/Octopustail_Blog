@@ -3,8 +3,8 @@
 export const actionType = {
     GET_ARTICLE_LIST: 'GET_ARTICLE_LIST',
     RESPONSE_ARTICLE_LIST: 'RESPONSE_ARTICLE_LIST',
-    GET_ARTICLE_DETAIL: 'GET_ARTICLE_DETIAL',
-    RESPONSE_ARTICLE_DETAIL: 'RESPONSE_ARTICLE_DETIAL',
+    GET_ARTICLE_DETAIL: 'GET_ARTICLE_DETAIL',
+    RESPONSE_ARTICLE_DETAIL: 'RESPONSE_ARTICLE_DETAIL',
 };
 
 /*initialState*/
@@ -27,7 +27,7 @@ export const actions = {
             pageNum
         }
     },
-    get_article_Detail: function (id) {
+    get_article_detail: function (id) {
         return {
             type: actionType.GET_ARTICLE_DETAIL,
             id
@@ -51,7 +51,7 @@ export function reducer(state = initialState, action) {
         case actionType.RESPONSE_ARTICLE_DETAIL:
             return{
                 ...state,
-                articleDetail: action.data.articleDetail,
+                articleDetail: action.data,
             };
         default:
             return state;

@@ -15,6 +15,7 @@ class Detail extends Component{
 
     render(){
         const {articleContent,title,author,viewCount,commentCount,time} = this.props;
+        console.log('this.props',this.props);
         return(
             <div className={style.container}>
                 <h2>{title}</h2>

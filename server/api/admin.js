@@ -26,7 +26,7 @@ router.get('/getUsers',(req,res)=>{
             responseData.total = count;
             User.find(null,'_id username type password',{skip:skip,limit:10})
                 .then((result)=>{
-                    responseData.list = result;
+                responseData.list = result;
                     responseClient(res,200,0,'',responseData)
                 })
                 .catch(err=>{
