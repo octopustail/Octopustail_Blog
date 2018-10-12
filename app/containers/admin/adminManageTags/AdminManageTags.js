@@ -13,7 +13,6 @@ const {get_all_tags, delete_tag, add_tag} = actions
 class AdminManagerTags extends Component {
     constructor(props) {
         super(props);
-        this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this)
         this.state = {
             tags: ['首页', 'HTML', 'CSS', 'JAVASCRIPT'],
             inputVisible: false,
@@ -21,32 +20,30 @@ class AdminManagerTags extends Component {
         }
     }
 
-    handleClose(tag) {
+    handleClose = (tag) => {
         this.props.deleteTag(tag)
     }
 
-    handleInputChange(e) {
+    showInput=()=> {
+        /*这里setState还带了回调函数*/
+        this.setState({inputVisible: true}, () => this.input.focus())
+    }
+
+    handleInputChange=(e)=> {
         this.setState({
             inputValue: e.target.value
         })
     }
 
-    handleInputConfirm() {
-
-    }
-
-    handleInputSubmit() {
-        this.props.add_tag(this.state.inputValue);
+    handleInputSubmit=()=> {
+        this.props.addTag(this.state.inputValue);
         this.setState({
             inputVisible: false,
             inputValue: ''
         })
     }
 
-    showInput() {
-        /*这里setState还带了回调函数*/
-        this.setState({inputVisible: true}, () => this.input.focus())
-    }
+
 
 
     saveInputRef = input => this.input = input
@@ -62,8 +59,9 @@ class AdminManagerTags extends Component {
                     const tagElem = (
                         <Tag
                             className={style.tagStyle} key={index} closable={index !== 0}
-                            afterClose={this.handleClose(tag)}
+                             afterClose={()=>this.handleClose(tag)}
                         >
+                            {/* 这里的afterClose是关闭动画之后的回调，API中要求的类型是()=>void*/}
                             {isLongTag ? `${tag.slice(0, 20)}...` : tag}
                         </Tag>
                     )
@@ -71,7 +69,7 @@ class AdminManagerTags extends Component {
 
                 })}
 
-                /*这个地方用inputVisible判断显示输入框还是按钮的操作学习了*/
+                {/*这个地方用inputVisible判断显示输入框还是按钮的操作学习了*/}
                 {inputVisible && (
                     <Input
                         className={style.tagStyle}
@@ -80,7 +78,7 @@ class AdminManagerTags extends Component {
                         style={{wight: 108}}
                         value={inputValue}
                         onChange={this.handleInputChange}
-                        onBlur={this.handleInputConfirm}
+                        onBlur={this.handleInputSubmit}
                         onPressEnter={this.handleInputSubmit}
                     />
                 )}
@@ -110,7 +108,6 @@ function mapDispatchToProps(dispatch) {
     }
 }
 
-/*TODO: 完成Component部分*/
 export default connect(
     mapStateToProps,
     mapDispatchToProps

@@ -82,7 +82,6 @@ AdminManageUsers.propTypes = {
 
 function mapStateToProps(state) {
     let {list, pageNum, total} = state.admin.users;
-    console.log('state.admin.users',state.admin.users)
     return {
         list,
         pageNum,

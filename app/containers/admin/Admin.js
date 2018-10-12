@@ -39,9 +39,8 @@ class Admin extends Component {
                 {
                     this.props.userInfo.userType === 'admin' ?
                         <div className={style.container}>
-                            <div>
+                            <div className={style.menuContainer}>
                                 <AdminMenu
-                                    className={style.menuContainer}
                                     history={this.props.history}
                                     url={this.props.adminUrl}
                                     changeUrl={this.props.change_location_admin}

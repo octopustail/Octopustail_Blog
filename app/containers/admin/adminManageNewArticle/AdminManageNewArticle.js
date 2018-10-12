@@ -122,7 +122,7 @@ function mapStateToProps(state) {
     let tempArr = state.admin.tags;
     /*TODO: 这里的tagBase去掉了首页 要知道tagBase是用在哪里的*/
     for (let i = 0; i < tempArr.length; i++) {
-        if (tempArr[i] === '首页' || tempArr[i] === '') {
+        if (tempArr[i] === '首页') {
             tempArr.splice(i, 1);
         }
     }
