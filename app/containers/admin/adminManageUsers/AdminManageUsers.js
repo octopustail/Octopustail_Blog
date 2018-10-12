@@ -37,6 +37,7 @@ class AdminManageUsers extends Component {
     }
 
     render() {
+        console.log('list',this.props.list)
         return (
             <div>
                 <h2>用户管理</h2>
@@ -62,6 +63,7 @@ class AdminManageUsers extends Component {
         //缓存
         /*TODO: 这是什么原理*/
         if(this.props.list.length===0)
+            console.log('this.props',this.props)
             this.props.getAllUsers();
     }
 }
@@ -80,6 +82,7 @@ AdminManageUsers.propTypes = {
 
 function mapStateToProps(state) {
     let {list, pageNum, total} = state.admin.users;
+    console.log('state.admin.users',state.admin.users)
     return {
         list,
         pageNum,

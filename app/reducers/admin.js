@@ -2,7 +2,7 @@ import {combineReducers} from 'redux';
 import {reducer as articles} from './adminManageArticles';
 import {reducer as newArticle} from './adminManageNewArticle';
 import {reducer as tags} from './adminManageTags';
-import {reducer as users} from './adminManageArticles';
+import {reducer as users} from './adminManageUsers';
 
 
 

@@ -24,10 +24,7 @@ class AdminManageArticles extends Component {
                 <div>
                     {
                         /*TODO: 这里的articleList是从哪里传过来的？*/
-                        this.props.articleList.map((item, index) => {
-
-                            console.log('this.props.articleList',this.props.articleList)
-                                return(
+                        this.props.articleList.map((item, index) => (
                             <ManageArticleCell
                                 editArticle={(id)=>this.props.edit_article(id)}
                                 history={this.props.history}
@@ -36,7 +33,7 @@ class AdminManageArticles extends Component {
                                 key={index} data={item}
                             />
                                 )
-                    })
+                    )
                     }
                 </div>
                 <div>

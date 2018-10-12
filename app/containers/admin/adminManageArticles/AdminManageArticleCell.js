@@ -3,7 +3,7 @@ import React from 'react';
 import {Button} from 'antd';
 
 export const ManageArticleCell = (props) => (
-    <div style={style.cellContainer}>
+    <div className={style.cellContainer}>
         <div className={style.cellAboutArticle}>
             <p className={style.articleTitle}>{props.data.title}</p>
             <p className={style.articleInfo}>
@@ -20,7 +20,7 @@ export const ManageArticleCell = (props) => (
         </div>
         <div className={style.cellOperation}>
             <Button type='primary' icon="edit" onClick={() => {
-                props.edit_article(props.data._id);
+                props.editArticle(props.data._id);
                 props.history.push('/admin/newArticle')
             }}>编辑</Button>
             <Button type='primary' icon="delete" onClick={() => props.delete(props.data._id)}>删除</Button>

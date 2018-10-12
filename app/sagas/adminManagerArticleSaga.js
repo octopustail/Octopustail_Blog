@@ -19,7 +19,6 @@ export function* getArticleListFlow () {
     while (true){
         let req = yield take(ArticleTypes.ADMIN_GET_ARTICLE_LIST);
         let res = yield call(getArticleList,req.pageNum);
-        console.log('req',req,'res',res)
 
         if(res){
             if (res.code === 0) {
@@ -83,6 +82,7 @@ export function* editArticle (id) {
 export function* editArticleFlow () {
     while (true){
         let req = yield take(ArticleTypes.ADMIN_EDIT_ARTICLE);
+
         let res = yield call(editArticle,req.id);
         if(res){
             if (res.code === 0) {
@@ -91,9 +91,9 @@ export function* editArticleFlow () {
                 let tags = res.data.tags;
                 let id = res.data._id;
                 yield put({type:NewArticleTypes.SET_ARTICLE_ID,id});
-                yield put({type:NewArticleTypes.UPDATING_TAGS,tags});
-                yield put({type:NewArticleTypes.UPDATING_CONTENT,content});
-                yield put({type:NewArticleTypes.UPDATING_TITLE,title});
+                yield put({type:NewArticleTypes.UPDATE_TAGS,tags});
+                yield put({type:NewArticleTypes.UPDATE_CONTENT,content});
+                yield put({type:NewArticleTypes.UPDATE_TITLE,title});
             } else {
                 yield put({type: IndexActionTypes.SET_MESSAGE, msgContent: res.message, msgType: 0});
             }

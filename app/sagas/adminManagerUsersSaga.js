@@ -28,6 +28,7 @@ export function* get_all_users_flow() {
             data.total = response.data.total;
             data.list  = response.data.list;
             data.pageNum = Number.parseInt(pageNum);
+            console.log('data',data)
             yield put({type:ManagerUserActionTypes.RESOLVE_GET_ALL_USERS,data:data})
         }else{
             yield put({type:IndexActionTypes.SET_MESSAGE,msgContent:response.message,msgType:0});
