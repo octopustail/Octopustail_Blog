@@ -14,14 +14,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Nealyang/React-Express-Blog-Demo.git"
+    "url": "git+https://github.com/octopustail/Octopustail_Blog.git"
   },
-  "author": "Nealyang",
+  "author": "OctopusTail",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Nealyang/React-Express-Blog-Demo/issues"
-  },
-  "homepage": "https://github.com/Nealyang/React-Express-Blog-Demo#readme",
   "dependencies": {
     "antd": "^2.13.1",
     "axios": "^0.16.2",

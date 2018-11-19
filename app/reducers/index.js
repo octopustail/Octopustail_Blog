@@ -30,7 +30,7 @@ const initialState = {
 
 /* actionCreators*/
 /*需要在组件中dispatch actions 主要是请求文章，*/
-/*TODO：之后需要关注这一个部分是不是用了saga 怎么使用的saga*/
+/*TODO：流程见简书blog*/
 export const actions = {
     get_login: function (username, password) {
         return {
@@ -60,8 +60,6 @@ export const actions = {
 }
 
 /* reducers */
-
-/*TODO：了解这一部分是不是用来处理saga 异步请求结果的 了解isFetching是用在哪里的*/
 
 export function reducer(state = initialState, action) {
     switch (action.type) {

@@ -1,6 +1,7 @@
 import Express from 'express'
 const router = Express.Router();
 import User from '../../models/user'
+/* MD5_SUFFIX md5 用来加密的方法 responseClient封装了状态提示信息 */
 import {MD5_SUFFIX,responseClient,md5} from '../util'
 
 /**
@@ -70,6 +71,8 @@ router.post('/register', (req, res) => {
                 type: 'user'
             });
             user.save()
+            /* 先保存再读取 */
+
                 .then(function () {
                     User.findOne({username: userName})
                         .then(userInfo=>{

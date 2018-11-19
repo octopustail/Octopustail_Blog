@@ -37,6 +37,7 @@ class Admin extends Component {
         if (this.props.userInfo && this.props.userInfo.userType) {
             return (<div>
                 {
+                    /* 在进入AdminIndex之前进行判断 */
                     this.props.userInfo.userType === 'admin' ?
                         <div className={style.container}>
                             <div className={style.menuContainer}>

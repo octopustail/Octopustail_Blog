@@ -3,7 +3,7 @@ const router = Express.Router();
 import User from '../../models/user'
 import {responseClient} from '../util'
 
-//admin请求后台验证
+//admin请求后台验证 验证身份是不是过期了 拦截所有的/admin的api操作
 
 router.use( (req,res,next) =>{
     if(req.session.userInfo){
