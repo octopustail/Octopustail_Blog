@@ -7,7 +7,7 @@ module.exports = {
     dbPort:"27017",
     app:{
         title:"personal blog",
-        description:'Nealyang\'s personal blog demo',
+        description:"Octopustail\'s personal blog demo",
         head:{
             titleTemplate:'blog',
             meta:[
